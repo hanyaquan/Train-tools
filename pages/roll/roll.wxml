@@ -1,0 +1,16 @@
+<template name="roll"> 
+ <block> 
+   <navigator url='../details/details2/detail2?artical_id={{newsId}}'> 
+    <view class='chakan'>查看</view> 
+   </navigator> 
+  <view class='sx_lunbo page_row'> 
+   <text class='red'>公告</text> 
+   <swiper class='sx_swiper page_row' autoplay interval="5000" duration="3000" bindchange="newsId" data-newsId='{{item.id}}' circular> 
+    <swiper-item wx:for="{{news}}" wx:key=""> 
+     <view class='reds'>{{item.title}} 
+     </view> 
+    </swiper-item> 
+   </swiper> 
+  </view> 
+ </block> 
+</template>

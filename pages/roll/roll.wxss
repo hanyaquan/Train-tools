@@ -1,0 +1,44 @@
+.sx_lunbo { 
+ width: 100%; 
+ height: 60rpx; 
+ border-bottom: solid 1px #eee; 
+} 
+.chakan{ 
+ padding-left: 25rpx; 
+ right: 20rpx; 
+ clear: both; 
+ position:absolute;  
+ height: 40rpx; 
+ margin-top: 10rpx; 
+ color: #f63; 
+ border:solid 1px #f63; 
+ border-radius:5rpx; 
+ padding: 0rpx 10rpx 0rpx 10rpx; 
+ font-size: 28rpx 
+} 
+.sx_swiper { 
+ width: 550rpx; 
+ margin-top: 10rpx; 
+} 
+.sx_swiper swiper-item{ 
+  height: 40rpx 
+ } 
+.reds { 
+ overflow: hidden; 
+ text-overflow: ellipsis; 
+ white-space:nowrap; 
+ width:500rpx; 
+ font-size: 28rpx; 
+ height: 40rpx; 
+} 
+.red { 
+ font-size: 24rpx; 
+ color: white; 
+ width: 60rpx; 
+ height: 40rpx; 
+ line-height: 40rpx; 
+ background: blue; 
+ padding-left: 10rpx; 
+ margin: 10rpx; 
+ border-radius: 10rpx; 
+}

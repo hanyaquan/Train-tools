@@ -1,0 +1,49 @@
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th"style="width:20%">站序</view>
+    <view class="th">站名</view>
+    <view class="th">到达时间</view>
+    <view class="th ">预计|实际</view>
+    <view class="th ">状态</view>
+  </view>
+  <block wx:for="{{stationlist}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td" style="width:10%">{{item.place}}</view>
+      <view class="td">{{item.station_name}}</view>
+      <view class="td">{{item.show_in_time}}</view>
+      <view class="td">{{item.yuji_in_time}}</view>
+      <view class="td">{{item.late_details}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td" style="width:10%">{{item.place}}</view>
+      <view class="td">{{item.station_name}}</view>
+      <view class="td">{{item.show_in_time}}</view>
+      <view class="td">{{item.yuji_in_time}}</view>
+      <view class="td">{{item.late_details}}</view>
+    </view>
+  </block>
+  <view class="weui-cells__title"></view>
+  <view class="weui-cells__title"></view>
+ 
+
+
+<view class='xhz_btn'>
+
+<form bindsubmit="deletetrip" report-submit="true" class='xhz_left'>
+  <button  type="primary" formType="submit" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"> {{TripDetail.isShare?"加入我的行程":"取消行程"}}</button>  
+</form>
+    <button class='xhz_right' type="primary" open-type='share' size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"> 分享给好友</button>       
+</view>
+
+  <view class="weui-cells__title"></view>
+  <view class="warn" bindtap="hideKeyboard" style='margin-top:60rpx;'>
+    <text class="warn_text">服务热线：18662566652</text>
+  </view>
+   
+    <view class="warn" bindtap="hideKeyboard" style='margin-top:10rpx;'>
+    <text class="warn_text">小火智云计算团队提供技术支持</text>
+  </view>
+   <view class="warn" bindtap="hideKeyboard" style='margin-top:10rpx;'>
+    <text class="warn_text">河南福礼诚电子商务有限公司 版权所有</text>
+  </view>
+</view>

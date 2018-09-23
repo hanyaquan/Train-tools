@@ -1,0 +1,144 @@
+<view class="container">
+  <scroll-view scroll-y style="height: 100%;">
+    <view class='heard-view'>
+      <!--输入框默认样式-->
+      <block wx:if="{{!isFocus}}">
+        <view class="text text_con" bindtap="showKeyboard">
+          <image src="" mode="aspectFit" class="search_icon"></image>
+          <text class="placeholder">{{placeholder}}</text>
+        </view>
+      </block>
+      <!--输入框打开键盘样式-->
+      <block wx:else="{{isFocus}}">
+        <view class="text text_con_focus" bindtap="bindFocus">
+          {{textValue}}
+          <view animation="{{animationData}}">|</view>
+        </view>
+      </block>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd" style='width:120rpx;'>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title"></view>
+<!-- 不可点击 -->
+<view wx:if="{{!checiState}}">
+<view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" bindtap='selectYinChangCity'>
+        <view class="weui-cell__bd">出发车站</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">上海</view>
+      </view>
+
+      <view class="weui-cell" bindtap='selectYinChangCity'>
+        <view class="weui-cell__bd">到达车站</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">上海</view>
+      </view>
+    </view>
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <picker mode="date" value="{{date}}" start="{{startdate}}" end="{{enddate}}">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">出发日期</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{date}}</view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells__title"></view>
+    <button type="warn" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}"  style='width:90%;margin-top:60rpx;'> 输入车次后才能点击</button>
+    </view>
+<!-- 不可点击 -->
+<view wx:if="{{checiState}}">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" >
+        <view class="weui-cell__bd">出发车站</view>
+        <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
+    <view class="picker">
+     {{array1[index1]}}
+    </view>
+  </picker>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">到达车站</view>
+         <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+    <view class="picker">
+      {{array2[index2]}}
+    </view>
+  </picker>
+      </view>
+    </view>
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <picker mode="date" value="{{date}}" start="{{startdate}}" end="{{enddate}}" bindchange="bindDateChange">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">出发日期</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{date}}</view>
+        </view>
+      </picker>
+    </view>
+
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells__title"></view>
+      <form bindsubmit="formSubmit" report-submit="true">
+    <button type="primary" formType="submit" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" style='width:90%;margin-top:60rpx;'> 添加行程</button>
+    </form>
+    </view>
+    <!--键盘-->
+    <block wx:if="{{isKeyboard}}">
+      <view class="keyboard">
+        <!--数字键盘不可点击-->
+        <view wx:if="{{!tapNum}}" class="td td_num board_bg" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName">
+          {{itemName}}
+        </view>
+        <!--数字键盘可点击-->
+        <view wx:if="{{tapNum}}" class="td td_num" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+          {{itemName}}
+        </view>
+        <!--字母键盘不可看-->
+        <view wx:if="{{!bottomNum}}" class="td td_num board_bg" wx:for="{{keyboardAlph}}" wx:for-index="idx" wx:for-item="itemName">
+          <view class="del_icon" wx:if="{{idx == 3}}" data-index="{{idx}}" data-val="{{itemName}}">
+            <!--<image src="/images/icon_del.png" mode="aspectFit" class="del_icon"></image>-->
+          </view>
+          <view wx:elif="{{idx != 3}}" data-index="{{idx}}" data-val="{{itemName}}">
+            {{itemName}}
+          </view>
+        </view>
+
+        <!--字母键盘-->
+        <view wx:if="{{bottomNum}}" class="td td_num" wx:for="{{keyboardAlph}}" wx:for-index="idx" wx:for-item="itemName" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+          <view class="del_icon" wx:if="{{idx == 3}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+            <!--<image src="/images/icon_del.png" mode="aspectFit" class="del_icon"></image>-->
+          </view>
+          <view wx:elif="{{idx != 3}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+            {{itemName}}
+          </view>
+        </view>
+        <!--完成按钮 start-->
+        <view wx:if="{{!bottomNum}}" class="td td_spec_fin board_bg" wx:for="{{keyboard2For}}" wx:for-index="idx" wx:for-item="itemName" data-index="{{idx}}" data-val="{{itemName}}">
+          {{itemName}}
+        </view>
+        <!--完成按钮 end-->
+        <!--完成按钮 start-->
+        <view wx:if="{{bottomNum}}" class="td td_spec_fin" wx:for="{{keyboard2For}}" wx:for-index="idx" wx:for-item="itemName" bindtap="tapSpecBtn" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg_spec" hover-start-time="0" hover-stay-time="80" >
+          {{itemName}}
+        </view>
+        <!--完成按钮 end-->
+      </view>
+    </block>
+    <view class="weui-cells__title"></view>
+    <!--提示语句-->
+    <view class="warn" bindtap="hideKeyboard">
+      <text class="warn_text">{{warnMessage}}</text>
+    </view>
+  </scroll-view>
+</view>
+<!-- <view class="section"> 
+ <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange"> 
+  <view class="picker"> 
+   日期: {{date}} 
+  </view> 
+ </picker> 
+</view> -->

@@ -1,0 +1,33 @@
+
+.body-view {
+  margin: 15rpx 15rpx;
+  padding: 10rpx 20rpx 50rpx 20rpx;
+  background-color: white;
+}
+.leftimg_text_box{
+  line-height: 50rpx;
+  text-align: left;
+}
+.leftimg_text_txt {
+  bottom: 15rpx;
+  left: 10rpx;
+  position: relative;
+  color: black;
+  font-weight:bold;
+}
+
+.leftimg_text_img {
+  width: 50rpx;
+  height: 50rpx;
+  position: relative;
+}
+
+.body-content{
+  margin-top: 10rpx;
+}
+.body-content_row{
+  height: 35rpx;
+  margin: 10rpx 0rpx;
+}
+
+

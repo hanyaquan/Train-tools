@@ -1,0 +1,50 @@
+<view style='background-color:#E7ECF0;height:{{height}};'>
+  <view wx:for="{{MyAllTripCheCi}}" data-index="{{index}}" wx:for-item="item" bindtap="binddetail">
+       <form bindsubmit="formSubmit" report-submit="true">
+    <button type="primary"style="background-color:white;   margin: 8rpx 8rpx;padding:0rpx" formType="submit"  >
+    <view class='body-view'>
+      <view class="wa-grid text-center">
+        <view class="wa-grid-50 leftimg_text_box">
+          <image src='../../img/huochezhan.png' class='leftimg_text_img'></image>
+          <label class='leftimg_text_txt'>{{item.train_no}}</label>
+        </view>
+        <view class="wa-grid-50" style='text-align: right;color:#aaa'>
+    {{item.startdate}}
+        </view>
+      </view>
+
+      <view class="wa-grid body-content">
+        <view class="wa-grid-25" style='text-align:center'>
+          <view class="wa-col body-content_row" style='color:#666;font-size:25rpx'>
+            {{item.mystartstation}}
+          </view>
+          <view class="wa-col body-content_row" style='color:#000;font-weight:bold;font-size:25rpx'>
+            {{item.show_start_time}}
+          </view>
+        </view>
+        <view class="wa-grid-50" style='text-align:center;padding-top:20rpx'>
+          <view class="wa-col" style='height:35rpx;color:#aaa;font-size:20rpx'>
+               {{item.show_duration_time}}
+          </view>
+          <view class="wa-col">
+            <view style='background: #6495ED;height:3rpx;width:90%;margin-left:5%'></view>
+            <!-- <image src='../../img/test.png' style='height:3rpx;width:90%'></image> -->
+          </view>
+          <view wx:if="{{item.next_station_state}}" class="wa-col" style='color:Salmon;font-weight:bold;font-size:23rpx'>
+           {{item.next_station_name}} 预计{{item.show_yuji_in_time}}到达
+          </view>
+        </view>
+        <view class="wa-grid-25" style='text-align:center'>
+          <view class="wa-col body-content_row" style='color:#666;font-size:25rpx'>
+            {{item.myendstation}}
+          </view>
+          <view class="wa-col body-content_row" style='color:#333;font-weight:bold;font-size:25rpx'>
+         {{item.show_end_time}}
+          </view>
+        </view>
+      </view>
+    </view>
+ </button>
+    </form>
+  </view>
+</view>

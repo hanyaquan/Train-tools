@@ -1,0 +1,119 @@
+/**index.wxss**/
+
+/*.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}*/
+.heard-view {
+  background-color: #4876ff;
+  /* padding-left: 70rpx;
+  padding-right: 70rpx; */
+  padding: 70rpx;
+  height: auto;
+  color: white;
+}
+
+.image-heard {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.body-view {
+  margin: 13rpx 13rpx;
+  padding: 10rpx 20rpx 50rpx 20rpx;
+  background-color: white;
+}
+
+
+.leftimg_text_box{
+  line-height: 50rpx;
+  text-align: left;
+}
+.leftimg_text_txt {
+  bottom: 15rpx;
+  left: 10rpx;
+  position: relative;
+  color: black;
+  font-weight:bold;
+}
+
+.leftimg_text_img {
+  width: 50rpx;
+  height: 50rpx;
+  position: relative;
+}
+
+.body-content{
+  margin-top: 10rpx;
+}
+.body-content_row{
+  height: 35rpx;
+  margin: 10rpx 0px;
+}
+.huochez{
+  margin: 20rpx 0rpx 0rpx 0rpx;
+  background-color: white;
+  padding: 30rpx;
+}
+
+.jiantou{
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+}
+
+.huochezhandian{
+  /* padding: 10rpx; */
+  height: 150rpx;
+}
+.huochezhandian_content{
+  margin: 10rpx 0;
+  padding: 5rpx;
+  /* background: gray; */
+  border-radius:5rpx;
+}
+.huochezhandian_content_nomo{
+  margin: 10rpx 0;
+  padding: 10rpx;
+  background: gray;
+  border-radius:5rpx;
+}
+.huozhenzhanwenzi{
+  font-size: 28rpx;
+  color: white;
+  font-weight: bold;
+}
+.huozhenzhanshijian{
+  color: white;
+  font-size: 25rpx;
+  margin-top: 5rpx;
+}
+.warn {
+  width: 100%;
+  height: 20%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: '宋体';
+  font-size: 30rpx;
+  color: #8b9397;
+  text-align: center;
+  line-height: 48rpx;
+}
