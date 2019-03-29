@@ -6,12 +6,15 @@
     "pages/selectCity/selectCity",
     "pages/myTiecker/myTiecker",
     "pages/stationlist/stationlist",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/gonggao/gonggao",
+    "pages/shouquan/shouquan"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4876FF",
     "navigationBarTitleText": "小火智-火车智能管家",
-    "navigationBarTextStyle": "#000"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "cloud": true
 }

@@ -18,13 +18,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '玩命加载中',
-    })
-
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
+   // console.log("999" + options.MyAllTripCheCi);
+    // var that = this;
+    // if (options.TripDetail) {
+    //   wx.navigateTo({
+    //     url: '../stationlist/stationlist?TripDetail=' + options.TripDetail,
+    //   })
+    // }
   },
 
   /**
@@ -59,6 +59,9 @@ Page({
     let _this = this;
     var wxuserid = wx.getStorageSync('wxuserid');
     console.log('myTicker-onShow:' + wxuserid);
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     wx.request({
       url: app.getMyAllTripHandleurl, //仅为示例，并非真实的接口地址
       data: {
@@ -84,10 +87,12 @@ Page({
             })
           }
         }
+        wx.hideLoading();
 
       }
     }
     )
+
   },
   // 添加车次
   formSubmit: function (e) {

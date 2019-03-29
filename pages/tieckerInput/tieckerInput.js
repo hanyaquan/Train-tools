@@ -29,10 +29,11 @@ Page({
     textArr: [],
     textValue: '',
     placeholder: '请输入您的车次',
-    warnMessage: '提示：输入车次完成请注意点击键盘完成按钮呦，要不然小智的“智商”跟不上吖',
+    warnMessage: '提示：1：输入车次完成，必须点击键盘完成按钮才能获取车次；2：一定要正确填写出发站和日期，否则不能获取正晚点呦！',
     telMessage: '该小程序目前仅适用于东北服务区停车场，给您造成的不便敬请谅解！',
     stations: [],
     wxuserid: '',
+    flagStart:false
   },
 
   onLoad: function () {
@@ -76,9 +77,9 @@ Page({
     this.setData({
       index2: index2,
       index1: temp,
+      flagStart:true,
       array2: stationstemp
     })
-
   },
   // 点击结束车站组件确定事件 
   bindPickerChange2: function (e) {
@@ -283,8 +284,22 @@ Page({
   },
   // 添加车次
   formSubmit: function (e) {
-    wx.vibrateShort();
     var self = this;
+    wx.vibrateShort();
+    if(!self.data.flagStart){
+      console.log(self.data.flagStart);
+
+    wx.showModal({
+      title: '您未选择出发车站',
+      content: '提醒-选择正确出发车站才能获取晚点信息呦',
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+        }
+      }
+    })
+    }
+    else{
     wx.showModal({
       title: '是否确定添加车次：' + self.data.textValue,
       content: '出发日期：' + self.data.date + ' ' + self.data.array1[self.data.index1] + '发往' + self.data.array2[self.data.index2],
@@ -350,6 +365,7 @@ Page({
         }
       }
     })
+    }
   },
   selectTime: function () {
   },
